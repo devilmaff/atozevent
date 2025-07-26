@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Success</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .circle {
+      background-color: #4285F4;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      animation: popIn 0.6s ease-out;
+    }
+
+    .circle::after {
+      content: '✓';
+      color: white;
+      font-size: 80px;
+      font-weight: bold;
+      animation: bounce 1.2s ease infinite alternate;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-6px); }
+    }
+  </style>
+  <script>
+    // Redirect to home page (form.html) after 5 seconds
+    setTimeout(() => {
+      window.location.href = "/"; // Change to your home page if different
+    }, 5000);
+  </script>
+</head>
+<body>
+  <div class="circle"></div>
+  <h1>Thank You!</h1>
+  <p>Your details have been successfully submitted.</p>
+  <p><strong>We will reach you soon.</strong></p>
+</body>
+</html>
