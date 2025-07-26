@@ -96,7 +96,7 @@
 
   <div class="container">
     <h1>Contact</h1>
-    <form method="POST" action="https://atozevents.netlify.app/submit">
+    <form id="contactForm">
       <label for="name">Name</label>
       <input type="text" name="name" required placeholder="Your Name">
 
@@ -112,6 +112,40 @@
       <button type="submit">Submit</button>
     </form>
   </div>
+
+  <script>
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        name: form.name.value,
+        mobile: form.mobile.value,
+        email: form.email.value,
+        message: form.message.value
+      };
+
+      try {
+        const res = await fetch("https://a1-events.onrender.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+        });
+
+        if (res.ok) {
+          window.location.href = "/success.html"; // Change if you want
+        } else {
+          alert("Submission failed. Please try again.");
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        alert("An error occurred. Please check your internet or server.");
+      }
+    });
+  </script>
 
 </body>
 </html>

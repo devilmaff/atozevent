@@ -138,4 +138,4 @@ app.post('/delete/:id', async (req, res) => {
 });
 
 // ✅ Start the server
-app.listen(3000, () => console.log("✅ Server running at https://atozevents.netlify.app/"));
+app.listen(3000, () => console.log("✅ Server running at localhost:3000"));
